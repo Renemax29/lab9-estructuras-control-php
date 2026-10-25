@@ -24,8 +24,31 @@ $huella = (SEMILLA * 13 + 91) % 1000;
 $descuento = SEMILLA * 0.001;
 $vacio = null;
 
-// ---------- EJERCICIO 1 · Boleto de cine (if / elseif / else) ----------
-// TODO 1
+// ---------- EJERCICIO 1 · Boleto de cine  ----------
+const PRECIO_NINO = 3.00;
+const PRECIO_JOVEN = 4.50;
+const PRECIO_ADULTO = 7.00;
+const PRECIO_JUBILADO = 3.50;
+
+if ($edad < 12) {
+    $categoria = "Niño";
+    $precio = PRECIO_NINO;
+} elseif ($edad < 18) {
+    $categoria = "Joven";
+    $precio = PRECIO_JOVEN;
+} elseif ($edad < 60) {
+    $categoria = "Adulto";
+    $precio = PRECIO_ADULTO;
+} else {
+    $categoria = "Jubilado";
+    $precio = PRECIO_JUBILADO;
+}
+
+$esMiercoles = "No";
+if ($dia == 3) {
+    $precio = $precio * 0.5;
+    $esMiercoles = "Sí";
+}
 
 // ---------- EJERCICIO 2 · Notas (elseif, ternario, &&) ----------
 // TODO 2
@@ -76,7 +99,7 @@ $vacio = null;
 
     <section id="ej1">
       <h2>Ejercicio 1 · Boleto de cine</h2>
-      <p id="ej1-res"><!-- TODO 1 --></p>
+      <p id="ej1-res">Categoría: <?php echo $categoria; ?> | Precio final: B/. <?php echo number_format($precio, 2); ?> | Miércoles 50%: <?php echo $esMiercoles; ?></p>
     </section>
 
     <section id="ej2">
