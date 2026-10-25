@@ -24,7 +24,7 @@ $huella = (SEMILLA * 13 + 91) % 1000;
 $descuento = SEMILLA * 0.001;
 $vacio = null;
 
-// ---------- EJERCICIO 1 · Boleto de cine  ----------
+// ---------- EJERCICIO 1 · Boleto de cine ----------
 const PRECIO_NINO = 3.00;
 const PRECIO_JOVEN = 4.50;
 const PRECIO_ADULTO = 7.00;
@@ -50,8 +50,27 @@ if ($dia == 3) {
     $esMiercoles = "Sí";
 }
 
-// ---------- EJERCICIO 2 · Notas (elseif, ternario, &&) ----------
-// TODO 2
+// ---------- EJERCICIO 2 · Notas ----------
+$promedio = ($nota1 + $nota2 + $nota3) / 3;
+
+if ($promedio >= 90) {
+    $letra = "A";
+} elseif ($promedio >= 80) {
+    $letra = "B";
+} elseif ($promedio >= 70) {
+    $letra = "C";
+} elseif ($promedio >= 60) {
+    $letra = "D";
+} else {
+    $letra = "F";
+}
+
+$estado = $promedio >= 70 ? "Aprobado" : "Reprobado";
+
+$cuadroHonor = "No";
+if ($promedio >= 90 && $nota1 >= 80 && $nota2 >= 80 && $nota3 >= 80) {
+    $cuadroHonor = "Sí";
+}
 
 // ---------- EJERCICIO 3 · Día de la semana (switch) ----------
 // TODO 3
@@ -105,7 +124,7 @@ if ($dia == 3) {
     <section id="ej2">
       <h2>Ejercicio 2 · Notas</h2>
       <!-- TODO CSS-4: agrega la clase "ok" o "error" con PHP según el estado -->
-      <p id="ej2-res" class="resultado"><!-- TODO 2 --></p>
+      <p id="ej2-res" class="resultado">Promedio: <?php echo number_format($promedio, 2); ?> | Letra: <?php echo $letra; ?> | Estado: <?php echo $estado; ?> | Cuadro de honor: <?php echo $cuadroHonor; ?></p>
     </section>
 
     <section id="ej3">
