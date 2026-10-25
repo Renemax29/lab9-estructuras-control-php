@@ -136,8 +136,37 @@ $estacion = match ($mes) {
     5, 6, 7, 8, 9, 10, 11 => "Lluviosa",
 };
 
-// ---------- EJERCICIO 5 · Caja de la tienda (reto integrador) ----------
-// TODO 5
+// ---------- EJERCICIO 5 · Caja de la tienda ----------
+const ITBMS = 0.07;
+
+// 1. Porcentaje de descuento por monto
+if ($monto >= 150) {
+    $pct = 15;
+} elseif ($monto >= 100) {
+    $pct = 10;
+} elseif ($monto >= 50) {
+    $pct = 5;
+} else {
+    $pct = 0;
+}
+
+// 2. Si es miembro, suma 5 puntos porcentuales
+if ($esMiembro) {
+    $pct = $pct + 5;
+}
+
+// 3. Precio base con descuento
+$base = $monto - ($monto * $pct / 100);
+
+// 4. Recargo nocturno del 3%
+$recargo = "No";
+if ($hora >= 22 || $hora < 6) {
+    $base = $base + ($base * 0.03);
+    $recargo = "Sí";
+}
+
+// 5. Total con ITBMS
+$total = $base + ($base * ITBMS);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -197,10 +226,10 @@ $estacion = match ($mes) {
 
     <section id="ej5">
       <h2>Ejercicio 5 · Caja de la tienda</h2>
-      <p id="ej5-monto"><!-- TODO 5 --></p>
-      <p id="ej5-descuento"><!-- TODO 5 --></p>
-      <p id="ej5-recargo"><!-- TODO 5 --></p>
-      <p id="ej5-total"><!-- TODO 5 --></p>
+      <p id="ej5-monto">Monto de compra: B/. <?php echo number_format($monto, 2); ?></p>
+      <p id="ej5-descuento">Descuento aplicado: <?php echo $pct; ?>%</p>
+      <p id="ej5-recargo">Recargo nocturno: <?php echo $recargo; ?></p>
+      <p id="ej5-total">Total a pagar: B/. <?php echo number_format($total, 2); ?></p>
     </section>
 
   </main>
