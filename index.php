@@ -177,9 +177,8 @@ $total = $base + ($base * ITBMS);
   <title>Lab 9 · Estructuras de control</title>
   <link rel="stylesheet" href="css/estilos.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+    h2 {
+      color: #1f3a5f;
     }
     table {
       border-collapse: collapse;
@@ -192,7 +191,7 @@ $total = $base + ($base * ITBMS);
 </head>
 <body>
   <header>
-    <h1 style="color: navy;">Laboratorio #9 · Estructuras de control</h1>
+    <h1 style="color: #ffd966;">Laboratorio #9 · Estructuras de control</h1>
     <p id="autor">Autor: <?php echo $nombreCompleto; ?></p>
   </header>
 
